@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Checkout</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="logo">TokoHerbal</div><nav>
+<a href="index.html">Beranda</a>
+<a href="produk.html">Produk</a>
+<a href="about.html">Tentang Kami</a>
+</nav></header>
+
+<h1>Checkout</h1>
+<div style="max-width:400px;margin:auto;">
+  <p id="produk"></p>
+  <input id="nama" placeholder="Nama" style="width:100%;padding:10px;margin:5px 0;">
+  <input id="alamat" placeholder="Alamat" style="width:100%;padding:10px;margin:5px 0;">
+  <input id="hp" placeholder="No HP" style="width:100%;padding:10px;margin:5px 0;">
+  <button onclick="sendWA()" style="padding:10px 20px;margin-top:10px;">Kirim Pesanan</button>
+</div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const produk = urlParams.get('product');
+document.getElementById('produk').innerHTML = "<b>Produk:</b> " + produk;
+
+function sendWA(){
+  let n=document.getElementById('nama').value;
+  let a=document.getElementById('alamat').value;
+  let h=document.getElementById('hp').value;
+  if(!n||!a||!h){ alert("Lengkapi semua data!"); return; }
+  let msg=`Halo, saya ingin memesan:%0AProduk: ${produk}%0ANama: ${n}%0AAlamat: ${a}%0AHP: ${h}`;
+  window.open("https://wa.me/6281234567890?text="+msg);
+}
+</script>
+
+<footer><p>Toko Herbal Premium</p></footer>
+</body></html>

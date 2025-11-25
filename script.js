@@ -1,0 +1,1 @@
+function checkout(product){window.location.href='checkout.html?product='+encodeURIComponent(product);}
